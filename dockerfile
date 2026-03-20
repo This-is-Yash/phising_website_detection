@@ -18,7 +18,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir fastapi uvicorn[standard] pandas numpy scikit-learn tensorflow pydantic python-multipart
 
 # Expose port
-EXPOSE 8000
+EXPOSE 8001
 
 # Copy and give execution permissions to run script
 COPY run.sh /app/run.sh
