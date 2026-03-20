@@ -29,4 +29,4 @@ else
 fi
 
 # Start FastAPI
-exec uvicorn app:app --host 0.0.0.0 --port 8001 --reload
+exec uvicorn app:app --host 0.0.0.0 --port 8080 --reload
