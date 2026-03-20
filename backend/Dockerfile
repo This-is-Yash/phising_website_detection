@@ -20,9 +20,5 @@ RUN pip install --no-cache-dir fastapi uvicorn[standard] pandas numpy scikit-lea
 # Expose the port your app will run on
 EXPOSE 8080
 
-# Copy and give execution permission to run.sh
-COPY run.sh /app/run.sh
-RUN chmod +x /app/run.sh
-
-# Start FastAPI
-CMD ["/app/run.sh"]
+# Start FastAPI directly with uvicorn
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
