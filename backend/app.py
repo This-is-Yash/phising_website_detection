@@ -95,41 +95,53 @@
 # def health():
 #     return {"message": "API is running!"}
 
+# from fastapi import FastAPI
+# from fastapi.middleware.cors import CORSMiddleware
+# from pydantic import BaseModel
+
+# app = FastAPI(title="URL Legitimacy Checker")
+
+# # Allow only your GitHub Pages origin
+# # origins = [
+# #     "https://this-is-yash.github.io",
+# #     "https://this-is-yash.github.io/phising_website_detection"
+# # ],
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     # allow_origins=["*"],
+#      allow_origins=["https://this-is-yash.github.io"],
+#     allow_credentials=False,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
+# class URLRequest(BaseModel):
+#     url: str
+
+# @app.post("/check_url")
+# def check_url(request: URLRequest):
+#     url = request.url
+#     # Dummy prediction
+#     is_safe = url.endswith("google.com")
+#     confidence = 99.9 if is_safe else 12.3
+#     return {"url": url, "prediction": "SAFE" if is_safe else "MALICIOUS", "confidence": confidence}
+
+# @app.options("/check_url")
+# def options_handler():
+#     return {"ok": True}
+# @app.get("/api_health")
+# def health():
+#     return {"message": "API is running!"}
+
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 
-app = FastAPI(title="URL Legitimacy Checker")
+app = FastAPI()
 
-# Allow only your GitHub Pages origin
-# origins = [
-#     "https://this-is-yash.github.io",
-#     "https://this-is-yash.github.io/phising_website_detection"
-# ],
+@app.get("/")
+def root():
+    return {"message": "Backend working"}
 
-app.add_middleware(
-    CORSMiddleware,
-    # allow_origins=["*"],
-     allow_origins=["https://this-is-yash.github.io"],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-class URLRequest(BaseModel):
-    url: str
-
-@app.post("/check_url")
-def check_url(request: URLRequest):
-    url = request.url
-    # Dummy prediction
-    is_safe = url.endswith("google.com")
-    confidence = 99.9 if is_safe else 12.3
-    return {"url": url, "prediction": "SAFE" if is_safe else "MALICIOUS", "confidence": confidence}
-
-@app.options("/check_url")
-def options_handler():
-    return {"ok": True}
 @app.get("/api_health")
 def health():
     return {"message": "API is running!"}
