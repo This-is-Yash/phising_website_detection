@@ -59,38 +59,72 @@
 # def health():
 #     return {"message": "API is running!"}
 
+# from fastapi import FastAPI
+# from fastapi.middleware.cors import CORSMiddleware
+# from pydantic import BaseModel
+
+# app = FastAPI(title="URL Legitimacy Checker")
+
+# # -------------------- CORS --------------------
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["https://this-is-yash.github.io"],  # only your GitHub Pages
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"]
+# )
+
+# # -------------------- Models --------------------
+# class URLRequest(BaseModel):
+#     url: str
+
+# # -------------------- API --------------------
+# @app.post("/check_url")
+# def check_url(request: URLRequest):
+#     url = request.url
+#     # Dummy logic
+#     is_safe = url.endswith("google.com")
+#     confidence = 99.9 if is_safe else 12.3
+#     return {
+#         "url": url,
+#         "prediction": "SAFE" if is_safe else "MALICIOUS",
+#         "confidence": confidence
+#     }
+
+# @app.get("/api_health")
+# def health():
+#     return {"message": "API is running!"}
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 app = FastAPI(title="URL Legitimacy Checker")
 
-# -------------------- CORS --------------------
+# Allow only your GitHub Pages origin
+origins = ["https://this-is-yash.github.io"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://this-is-yash.github.io"],  # only your GitHub Pages
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
-# -------------------- Models --------------------
 class URLRequest(BaseModel):
     url: str
 
-# -------------------- API --------------------
 @app.post("/check_url")
 def check_url(request: URLRequest):
     url = request.url
-    # Dummy logic
+    # Dummy prediction
     is_safe = url.endswith("google.com")
     confidence = 99.9 if is_safe else 12.3
-    return {
-        "url": url,
-        "prediction": "SAFE" if is_safe else "MALICIOUS",
-        "confidence": confidence
-    }
+    return {"url": url, "prediction": "SAFE" if is_safe else "MALICIOUS", "confidence": confidence}
 
 @app.get("/api_health")
 def health():
     return {"message": "API is running!"}
+
+
