@@ -102,14 +102,14 @@ from pydantic import BaseModel
 app = FastAPI(title="URL Legitimacy Checker")
 
 # Allow only your GitHub Pages origin
-origins = [
-    "https://this-is-yash.github.io",
-    "https://this-is-yash.github.io/phising_website_detection"
-],
+# origins = [
+#     "https://this-is-yash.github.io",
+#     "https://this-is-yash.github.io/phising_website_detection"
+# ],
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
