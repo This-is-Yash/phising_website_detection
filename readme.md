@@ -51,19 +51,20 @@ phishing_detection/
 │   ├── app.py                # FastAPI backend
 │   ├── predict.py            # Prediction logic
 │   ├── feature_extractor.py  # Feature extraction
-│   ├── model/                # Trained models
-│
-├── data/
-│   └── urls_dataset.csv      # Dataset
-│
-├── train_models.py           # Model training
-├── scraper.py                # Dataset collection
-├── frontend/
+│   ├── model/
+|              └──models.pkl              # Trained models
+|   ├── train_models.py           # Model training
+|   ├── scraper.py
+|   ├── data/
+│           └── urls_dataset.csv      # Dataset
+|
+├── docs/
 │   ├── index.html
 │   ├── css/style.css
 │   └── js/script.js
 │
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
