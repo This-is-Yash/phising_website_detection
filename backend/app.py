@@ -109,8 +109,9 @@ app = FastAPI(title="URL Legitimacy Checker")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    # allow_origins=["*"],
+     allow_origins=["https://this-is-yash.github.io"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
