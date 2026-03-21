@@ -20,7 +20,8 @@ app.mount("/static", StaticFiles(directory=frontend_path), name="static")
 # -------------------- CORS --------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all origins for testing
+    allow_origins=["https://this-is-yash.github.io"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
 )
