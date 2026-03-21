@@ -160,6 +160,10 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8080
 * **CORS Enabled** for cross-origin requests
 
 ---
+## 🖼️ Scree shot
+<img width="1918" height="887" alt="image" src="https://github.com/user-attachments/assets/274ebf46-c190-440f-bb80-cf5425bd6c87" />
+
+---
 
 ## ⚠️ Known Issues
 
