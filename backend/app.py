@@ -127,6 +127,9 @@ def check_url(request: URLRequest):
     confidence = 99.9 if is_safe else 12.3
     return {"url": url, "prediction": "SAFE" if is_safe else "MALICIOUS", "confidence": confidence}
 
+@app.options("/check_url")
+def options_handler():
+    return {"ok": True}
 @app.get("/api_health")
 def health():
     return {"message": "API is running!"}
