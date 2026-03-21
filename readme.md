@@ -53,8 +53,13 @@ phishing_detection/
 │   ├── feature_extractor.py  # Feature extraction
 │   ├── model/
 |              └──models.pkl              # Trained models
+|               └──tokenizer.pkl
+|               └──dl_model.h5.pkl
 |   ├── train_models.py           # Model training
 |   ├── scraper.py
+|   ├── utils.py
+|   ├── requirements.txt
+|   ├──Dockerfile 
 |   ├── data/
 │           └── urls_dataset.csv      # Dataset
 |
