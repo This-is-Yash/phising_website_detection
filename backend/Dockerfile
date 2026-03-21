@@ -21,4 +21,4 @@ RUN pip install --no-cache-dir fastapi uvicorn[standard] pandas numpy scikit-lea
 EXPOSE 8080
 
 # Start FastAPI directly with uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", $PORT, "--reload"]
