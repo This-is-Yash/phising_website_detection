@@ -95,36 +95,46 @@
 # def health():
 #     return {"message": "API is running!"}
 
+# from fastapi import FastAPI
+# from fastapi.middleware.cors import CORSMiddleware
+# from pydantic import BaseModel
+
+# app = FastAPI(title="URL Legitimacy Checker")
+
+# # Allow only your GitHub Pages origin
+# origins = ["https://this-is-yash.github.io"]
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
+# class URLRequest(BaseModel):
+#     url: str
+
+# @app.post("/check_url")
+# def check_url(request: URLRequest):
+#     url = request.url
+#     # Dummy prediction
+#     is_safe = url.endswith("google.com")
+#     confidence = 99.9 if is_safe else 12.3
+#     return {"url": url, "prediction": "SAFE" if is_safe else "MALICIOUS", "confidence": confidence}
+
+# @app.get("/api_health")
+# def health():
+#     return {"message": "API is running!"}
+
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 
-app = FastAPI(title="URL Legitimacy Checker")
+app = FastAPI()
 
-# Allow only your GitHub Pages origin
-origins = ["https://this-is-yash.github.io"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-class URLRequest(BaseModel):
-    url: str
-
-@app.post("/check_url")
-def check_url(request: URLRequest):
-    url = request.url
-    # Dummy prediction
-    is_safe = url.endswith("google.com")
-    confidence = 99.9 if is_safe else 12.3
-    return {"url": url, "prediction": "SAFE" if is_safe else "MALICIOUS", "confidence": confidence}
+@app.get("/")
+def home():
+    return {"status": "running"}
 
 @app.get("/api_health")
 def health():
     return {"message": "API is running!"}
-
-
