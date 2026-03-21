@@ -21,8 +21,6 @@ It combines:
 * 🔗 Frontend (GitHub Pages):
   https://this-is-yash.github.io/phising_website_detection/
 
-* 🔗 Backend API (Railway):
-  https://phising-website-detection-production-8517.up.railway.app/
 
 ---
 
@@ -117,40 +115,6 @@ Extracted features include:
 
 * Combine ML + DL outputs
 * Generate final classification
-
----
-
-## 🖥️ API Endpoints
-
-### 🔹 Health Check
-
-```
-GET /api_health
-```
-
-### 🔹 Predict URL
-
-```
-POST /check_url
-```
-
-#### Request:
-
-```json
-{
-  "url": "https://example.com"
-}
-```
-
-#### Response:
-
-```json
-{
-  "url": "https://example.com",
-  "prediction": "SAFE",
-  "confidence": 98.5
-}
-```
 
 ---
 
