@@ -135,16 +135,35 @@
 #     return {"message": "API is running!"}
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 def root():
-    return {"message": "Backend working"}
+    return {"status": "working"}
 
 @app.get("/api_health")
 def health():
     return {"message": "API is running!"}
+
+@app.post("/check_url")
+def check_url(data: dict):
+    url = data.get("url", "")
+    is_safe = url.endswith("google.com")
+    return {
+        "url": url,
+        "prediction": "SAFE" if is_safe else "MALICIOUS",
+        "confidence": 99.9 if is_safe else 12.3
+    }
 
 # from fastapi import FastAPI
 
