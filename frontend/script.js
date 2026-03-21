@@ -1,5 +1,7 @@
 
-const API_URL = "http://127.0.0.1:8001/check_url";
+// const API_URL = "http://127.0.0.1:8001/check_url";
+// Replace previous API URL
+const API_URL = "https://phising-website-detection.up.railway.app/check_url"; // Railway public URL
 
 document.getElementById("checkBtn").addEventListener("click", async () => {
     const url = document.getElementById("urlInput").value.trim();
