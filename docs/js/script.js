@@ -38,7 +38,8 @@
 // });
 
 
-const API_URL = "https://phising-website-detection.up.railway.app/check_url";
+// const API_URL = "https://phising-website-detection.up.railway.app/check_url";
+const API_URL = "https://phising-website-detection-production-8517.up.railway.app/check_url";
 
 document.getElementById("checkBtn").addEventListener("click", async () => {
     const url = document.getElementById("urlInput").value.trim();
