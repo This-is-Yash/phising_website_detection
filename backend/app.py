@@ -141,7 +141,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://this-is-yash.github.io/phising_website_detection/"],
+    allow_origins=["https://this-is-yash.github.io"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
